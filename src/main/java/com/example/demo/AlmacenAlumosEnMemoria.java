@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlmacenAlumos {
+public class AlmacenAlumosEnMemoria implements AlmacenAlumnos {
 
 	List <Alumno> lista;
 	
@@ -22,11 +22,12 @@ public class AlmacenAlumos {
 				Alumno.builder()
 				.nombre("Alex")
 				.apellidos("Luque Hoffrogge")
-				.fechaNacimiento(LocalDate.of(2002, 04, 12))
+				.fechaNacimiento(LocalDate.of(2002, 04, 13))
 				.build()
 				);
 	}
 	
+	@Override
 	public List<Alumno> findAll(){
 		return Collections.unmodifiableList(lista);
 	}

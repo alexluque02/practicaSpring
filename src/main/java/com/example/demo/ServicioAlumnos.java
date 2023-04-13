@@ -5,12 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ServicioAlumnos {
-	@Autowired //Satisface la dependencia que tiene ServicioAlumnos de AlmacenAlumnos             
-	private AlmacenAlumos almacenAlumnos;
+	@Autowired //Satisface la dependencia que tiene ServicioAlumnos de AlmacenAlumnos   
+	@Qualifier("almacenAlumnosEnMemoria")
+	//private AlmacenAlumnos almacenAlumnos;
+	private AlmacenAlumosEnMemoria almacenAlumnos;
 
 	/**
 	 * Método que devuelve el listado con los nombres
